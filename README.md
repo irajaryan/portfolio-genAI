@@ -7,6 +7,12 @@ sdk: gradio
 sdk_version: 5.42.0
 app_file: app.py
 pinned: false
+<<<<<<< HEAD
+=======
+hf_oauth: true
+hf_oauth_scopes:
+- inference-api
+>>>>>>> 9fae6ff (initial commit)
 license: mit
 short_description: A RAG Gen AI chatbot
 ---
