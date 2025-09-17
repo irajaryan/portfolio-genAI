@@ -26,6 +26,26 @@ INDEX_DIR = ROOT / "index"
 EMBS_PATH = INDEX_DIR / "embeddings.npy"
 META_PATH = INDEX_DIR / "chunks.json"
 
+# Load embeddings and metadata required for retrieval
+if not INDEX_DIR.exists():
+    raise RuntimeError(f"Index directory not found at {INDEX_DIR}. Please ensure embeddings and metadata are generated.")
+
+try:
+    with open(META_PATH, "r", encoding="utf-8") as f:
+        meta = json.load(f)
+except Exception as e:
+    raise RuntimeError(f"Failed to load metadata from {META_PATH}: {e}")
+
+try:
+    embs = np.load(EMBS_PATH)
+except Exception as e:
+    raise RuntimeError(f"Failed to load embeddings from {EMBS_PATH}: {e}")
+
+# Ensure embeddings are 2D and normalized row-wise for dot-product / cosine similarity
+if embs.ndim == 1:
+    embs = embs.reshape(1, -1)
+embs = normalize(embs, axis=1)
+
 # ---------- utilities ----------
 def words_count(s: str) -> int:
     return len(s.strip().split()) if s and s.strip() else 0
