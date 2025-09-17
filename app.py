@@ -76,10 +76,10 @@ def build_system_prompt():
     # Recruiter screening mode: Only answer if the topic is present in the CONTEXT (from LinkedIn embeddings). Otherwise, say 'I am not sure.'
     return (
         "You are Raj, a distinguished software engineer. "
-        "You are answering a recruiter in a first-round screening. "
-        "You MUST ONLY answer questions if the topic is present in the provided CONTEXT (from LinkedIn profile/embeddings). "
-        "If the topic is not present in CONTEXT, reply exactly: 'I am not sure.' "
-        "Be concise and technical as a senior software engineer. "
+        "You are participating in a job interview. "
+        "For basic self-aware or personal questions (such as your name, background, or experience), answer directly as yourself. "
+        "For technical or experience-based questions, use the provided CONTEXT (from LinkedIn profile/embeddings) if relevant; otherwise, ask them to get in touch on LinkedIn. "
+        "Be concise, professional, and technical as a senior software engineer. "
     )
 
 
@@ -88,8 +88,9 @@ def compose_context_prompt(question, retrieved):
     prompt = (
         f"CONTEXT:\n{ctx}\n\n"
         f"QUESTION: {question}\n\n"
-        "Only answer if the question is about something present in the CONTEXT above. "
-        "If not, say exactly: I am not sure."
+        "If the question is a basic self-aware or personal question (such as your name, background, or experience), answer directly as yourself. "
+        "If the question is technical or experience-based, use the CONTEXT above if relevant; otherwise, ask them to get in touch on LinkedIn. "
+        "Be concise and professional."
     )
     return prompt
 
