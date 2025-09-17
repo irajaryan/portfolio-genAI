@@ -140,7 +140,7 @@ def call_openai_chat(system_prompt, user_prompt, max_tokens, temperature, model_
     return text, usage
 
 # ---------- Gradio app logic ----------
-def handle_question(user_message, chat_history, system_message, max_tokens_slider, temperature_slider):
+def handle_question(user_message, chat_history, system_message, max_tokens_slider, temperature_slider, relevance_threshold):
     """
     chat_history: list of (user, bot) tuples as provided by gr.Chatbot state.
     """
@@ -172,16 +172,16 @@ def handle_question(user_message, chat_history, system_message, max_tokens_slide
     ok = verify_response_quotes(gen_text, retrieved)
     if not ok:
         # accept generated answer if top retrieved chunk is sufficiently similar
-        if top_score >= RELEVANCE_THRESHOLD:
+        if top_score >= relevance_threshold:
             # enforce output word limit
             words = gen_text.strip().split()
             if len(words) > MAX_OUTPUT_WORDS:
                 gen_text = " ".join(words[:MAX_OUTPUT_WORDS]) + " ..."
             final = gen_text
-            debug_info = f"top_score={top_score:.4f} >= threshold {RELEVANCE_THRESHOLD:.2f}; accepted generated answer without explicit quote."
+            debug_info = f"top_score={top_score:.4f} >= threshold {relevance_threshold:.2f}; accepted generated answer without explicit quote."
         else:
             final = "I am not sure."
-            debug_info = f"top_score={top_score:.4f} < threshold {RELEVANCE_THRESHOLD:.2f}; verification failed."
+            debug_info = f"top_score={top_score:.4f} < threshold {relevance_threshold:.2f}; verification failed."
     else:
         # enforce output word limit
         words = gen_text.strip().split()
@@ -198,7 +198,7 @@ def handle_question(user_message, chat_history, system_message, max_tokens_slide
 
 
 # --- Gradio ChatInterface integration with OpenAI logic ---
-def gradio_respond(message, history, system_message, max_tokens, temperature, top_p):
+def gradio_respond(message, history, system_message, max_tokens, temperature, relevance_threshold):
     """
     Gradio ChatInterface handler using OpenAI chat completion and retrieval logic.
     history: list of dicts with 'role' and 'content'.
@@ -218,6 +218,7 @@ def gradio_respond(message, history, system_message, max_tokens, temperature, to
         system_message,
         max_tokens,
         temperature,
+        relevance_threshold,
     )
     # Only return the latest bot response
     return updated_history[-1][1]
@@ -235,11 +236,11 @@ chatbot = gr.ChatInterface(
         gr.Slider(minimum=1, maximum=2048, value=300, step=1, label="Max new tokens"),
         gr.Slider(minimum=0.0, maximum=2.0, value=0.0, step=0.1, label="Temperature"),
         gr.Slider(
-            minimum=0.1,
+            minimum=0.0,
             maximum=1.0,
-            value=0.95,
-            step=0.05,
-            label="Top-p (nucleus sampling)",
+            value=0.18,
+            step=0.01,
+            label="Relevance threshold",
         ),
     ],
 )
