@@ -1,0 +1,23 @@
+[
+  {
+    "id": "linkedin_chunk_000000",
+    "text": "Contact 0000000000 (Mobile) xxxxxxxx000@gmail.com www.linkedin.com/in/raj-aryan- singh (LinkedIn) Top Skills DSA Python (Programming Language) Generative AI Certifications Object Oriented Programming in Java Improve Communication Using Lean Thinking Software Architecture: Domain- Driven Design Automata Theory Java (Basic) Honors-Awards BUK India \"Customer Obsession\" awardRaj Aryan Singh Senior Software Engineer Pune, Maharashtra, India Summary I am a results-driven Python and Generative AI Engineer with 4+ years of specialised experience in building enterprise-grade conversational AI solutions. With a proven track record of delivering measurable business impact through innovative AI-driven automation I specialise in translating complex AI concepts into production-ready solutions. My approach combines cutting-edge Generative AI techniques with robust engineering practices, ensuring systems that are not only innovative but also scalable, maintainable, and measurable. I am passionate about advancing the boundaries of Generative AI applications in enterprise settings, particularly in enhancing customer experience through intelligent automation and personalised AI interactions. Experience Barclays 4 years 2 months Senior Software Engineer February 2025 - Present (8 months) Pune, Maharashtra, India • Developed a RAG based Ask AI toolkit for customer support team, replacing manual search and significantly reducing information retrieval time. • Implemented intent confidence thresholds to trigger fallback/assisted NLU and integrated an orchestrator micro-service to route",
+    "source": "Profile-3.pdf",
+    "start_word": 0,
+    "end_word": 200
+  },
+  {
+    "id": "linkedin_chunk_000001",
+    "text": "months Senior Software Engineer February 2025 - Present (8 months) Pune, Maharashtra, India • Developed a RAG based Ask AI toolkit for customer support team, replacing manual search and significantly reducing information retrieval time. • Implemented intent confidence thresholds to trigger fallback/assisted NLU and integrated an orchestrator micro-service to route low-confidence utterances to appropriate conversation flows by context switching. Software Engineer - BA3 August 2021 - January 2025 (3 years 6 months) Pune, Maharashtra, India • Optimised the Barclays Assistant (AWS Lex) by building a topic cloud to identify and extract frequent intent clusters, and broaden Lex’s intent taxonomy. Product analytics showed ~40% increase in automated in-app handling and ~25% fewer agent handovers. Page 1 of 3 • Architected a real-time session enrichment framework using customer profile APIs, improving bot response relevance and first-touch resolution. Surveys recorded a measurable increase in NPS. • Developed a Business Control Dashboard using FastAPI, allowing product owners to tune configurations and make copy changes for chat & chatbot on the fly. • Contributed to the development of Barclays UK’s first server-less multichannel asynchronous chat platform that receives more than 500k chats per day. • Enhanced the orchestrator to detect vulnerability signals via APIs and",
+    "source": "Profile-3.pdf",
+    "start_word": 150,
+    "end_word": 350
+  },
+  {
+    "id": "linkedin_chunk_000002",
+    "text": "allowing product owners to tune configurations and make copy changes for chat & chatbot on the fly. • Contributed to the development of Barclays UK’s first server-less multichannel asynchronous chat platform that receives more than 500k chats per day. • Enhanced the orchestrator to detect vulnerability signals via APIs and route those sessions to tailored support workflows, improving prioritisation and resolution times. • Maintained 90%+ unit-test coverage across chat process API Lambda functions using Pytest and mocks. • Improved system observability by centralising logging and implementing AWS X-Ray tracing with dashboards, enabling faster incident diagnosis and clearer traceability. PTC India Financial Services Limited Information Technology Intern January 2021 - May 2021 (5 months) Delhi, India Power Grid Corporation of India Limited Project Intern May 2019 - July 2019 (3 months) Gurgaon, India ABB Summer Intern May 2018 - July 2018 (3 months) Faridabad Area, India Education Vellore Institute of Technology Bachelor of Technology - BTech, Information Technology · (2017 - 2021) Modern Vidya Niketan, Sec-17, Faridabad Senior Secondary Schooling · (2014 - 2016) Page 2 of 3 DAV Public School, Faridabad Secondary Schooling · (2009 - 2014) Page 3 of 3",
+    "source": "Profile-3.pdf",
+    "start_word": 300,
+    "end_word": 491
+  }
+]
